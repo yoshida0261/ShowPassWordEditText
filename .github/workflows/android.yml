@@ -25,7 +25,7 @@ jobs:
         curl \
          -F "token=${{secrets.DEPLOYGATE_TOKEN}}" \
          -F "file=@app/build/outputs/apk/debug/app-debug.apk" \
-         -F "message=https://github.com/${{secrets.GITHUB_USER}}/${{secrets.GITHUB_REPOSITORY}}/commit/`git rev-parse --short $GITHUB_SHA`" \
+         -F "message=test --short $GITHUB_SHA`" \
          -F "distribution_name=$GITHUB_HEAD_REF" \
          https://deploygate.com/api/${{secrets.DEPLOYGATE_USER}}/actindi/apps
 
