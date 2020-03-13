@@ -28,3 +28,12 @@ jobs:
          -F "message=https://github.com/${{secrets.GITHUB_USER}}/${{secrets.GITHUB_REPOSITORY}}/commit/`git rev-parse --short $GITHUB_SHA`" \
          -F "distribution_name=$GITHUB_HEAD_REF" \
          https://deploygate.com/api/${{secrets.DEPLOYGATE_USER}}/actindi/apps
+
+    - name: Slack Notification
+      uses: rtCamp/action-slack-notify@master
+      env:
+        SLACK_CHANNEL: ${{secrets.SLACK_CHANNEL}}
+        SLACK_COLOR: '#008000'
+        SLACK_TITLE: ':rocket::rocket::rocket: Finished distribute to deploygate! :rocket::rocket::rocket:'
+        SLACK_USERNAME: GitHub Actions
+        SLACK_WEBHOOK: ${{secrets.SLACK_WEBHOOK}}
