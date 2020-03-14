@@ -27,7 +27,7 @@ jobs:
          -F "file=@app/build/outputs/apk/debug/app-debug.apk" \
          -F "message=test " \
          -F "distribution_name=$GITHUB_HEAD_REF" \
-         https://deploygate.com/api/${{secrets.DEPLOYGATE_USER}}/actindi/apps
+         https://deploygate.com/api/${{secrets.DEPLOYGATE_USER}}/apps
 
     - name: Slack Notification
       uses: rtCamp/action-slack-notify@master
